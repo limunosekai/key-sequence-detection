@@ -7,7 +7,17 @@
 </head>
 <body>
 <script>
+  const pressed = [];
+  const secretCode = 'limu';
   
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key);
+    // splice(start,deleteCount) start 음수 지정시 끝에서부터 셈
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+      if (pressed.join('').includes(secretCode)) {
+        cornify_add();
+      }
+  });
 </script>
 </body>
 </html>
